@@ -1,0 +1,77 @@
+#: import game_phase10 game_phase10
+
+<CustomRow@GridLayout>
+    cols: 12
+    rows: 2
+
+    Label:
+        text: 'Name'
+    Label:
+        text: '1'
+    Label:
+        text: '2'
+    Label:
+        text: '3'
+    Label:
+        text: '4'
+    Label:
+        text: '5'
+    Label:
+        text: '6'
+    Label:
+        text: '7'
+    Label:
+        text: '8'
+    Label:
+        text: '9'
+    Label:
+        text: '10'
+    Label:
+        text: 'Score'
+
+    TextInput:
+    CheckButton:
+    CheckButton:
+    CheckButton:
+    CheckButton:
+    CheckButton:
+    CheckButton:
+    CheckButton:
+    CheckButton:
+    CheckButton:
+    CheckButton:
+
+    Label:
+        text: '0'
+
+<CheckButton@Button>
+    text: ''
+    on_press: if self.text == '': self.text = 'X'
+
+<Player_Name@Label>
+    id: player_name
+    text: 'Name'
+
+
+
+<Phase10>
+    name: 'phase10'
+    BoxLayout:
+        orientation: 'vertical'
+
+        BoxLayout:
+            Button:
+                text: '<--'
+                on_release: app.root.current = 'welcome_screen'
+            Label:
+                text: 'Phase 10'
+
+        BoxLayout:
+            id: players
+            orientation: 'vertical'
+            Label:
+                text: 'Players'
+
+            CustomRow:
+
+            CustomRow:

@@ -1,0 +1,12 @@
+#: import screen_welcome screen_welcome
+
+<Welcome_Screen>
+    name: 'welcome_screen'
+
+    BoxLayout:
+        orientation: 'vertical'
+        Button:
+            text: 'Welcome'
+        Button:
+            text: 'Phase 10'
+            on_release: app.root.current = 'phase10'
