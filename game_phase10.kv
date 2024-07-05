@@ -1,9 +1,9 @@
 #: import game_phase10 game_phase10
+#: import Factory kivy.factory.Factory
 
-<CustomRow@GridLayout>
+<LabelRow@GridLayout>
     cols: 12
-    rows: 2
-
+    rows: 1
     Label:
         text: 'Name'
     Label:
@@ -29,6 +29,9 @@
     Label:
         text: 'Score'
 
+<CustomRow@GridLayout>
+    cols: 12
+    rows: 2
     TextInput:
     CheckButton:
     CheckButton:
@@ -40,18 +43,41 @@
     CheckButton:
     CheckButton:
     CheckButton:
-
-    Label:
-        text: '0'
+    ScoreButton:
 
 <CheckButton@Button>
     text: ''
-    on_press: if self.text == '': self.text = 'X'
+    on_press: game_phase10.Phase10.check_button(self)
+    ######### ^^ key to using func in cust items ^^ #######
 
-<Player_Name@Label>
-    id: player_name
-    text: 'Name'
+<ScoreButton@Button>
+    text: '0'
+    on_release: game_phase10.Phase10.add_score(self)
 
+<RulesPopup@Popup>
+    auto_dismiss: False
+    title: 'Phase 10 Rules'
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            id: rules_label
+            text: 'This is where the rules go'
+        Button:
+            text: 'Close'
+            size_hint: 1, .2
+            on_release: root.dismiss()
+
+<PhasesPopup@Popup>
+    auto_dismiss: False
+    title: 'Phases'
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'This is where the Phases go'
+        Button:
+            text: 'Close'
+            size_hint: 1, .2
+            on_release: root.dismiss()
 
 
 <Phase10>
@@ -59,19 +85,43 @@
     BoxLayout:
         orientation: 'vertical'
 
-        BoxLayout:
+        GridLayout:
+            cols: 3
+            rows: 1
+            size_hint: 1, .2
+
             Button:
                 text: '<--'
+                size_hint: .2, 1
                 on_release: app.root.current = 'welcome_screen'
             Label:
                 text: 'Phase 10'
+            Label:
+                size_hint: .2, 1
 
         BoxLayout:
             id: players
             orientation: 'vertical'
+            #size_hint: .8, 1
+
             Label:
                 text: 'Players'
-
+            LabelRow:
+            CustomRow:
+            CustomRow:
+            CustomRow:
+            CustomRow:
             CustomRow:
 
-            CustomRow:
+        GridLayout:
+            cols: 4
+            rows: 1
+            size_hint: 1, .1
+            Button:
+                text: 'Ruels'
+                on_release: Factory.RulesPopup().open()
+            Button:
+                text: 'Phases'
+                on_release: Factory.PhasesPopup().open()
+            Button:
+                text: 'Reset'
