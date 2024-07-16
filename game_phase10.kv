@@ -2,10 +2,23 @@
 #: import Factory kivy.factory.Factory
 
 <LabelRow@GridLayout>
-    cols: 12
-    rows: 1
+    cols: 11
+    rows: 2
+    size_hint: 1, .1
+
     Label:
         text: 'Name'
+    Label:
+    Label:
+    Label:
+    Label:
+    Label:
+    Label:
+    Label:
+    Label:
+    Label:
+    Label:
+
     Label:
         text: '1'
     Label:
@@ -28,22 +41,6 @@
         text: '10'
     Label:
         text: 'Score'
-
-<CustomRow@GridLayout>
-    cols: 12
-    rows: 2
-    TextInput:
-    CheckButton:
-    CheckButton:
-    CheckButton:
-    CheckButton:
-    CheckButton:
-    CheckButton:
-    CheckButton:
-    CheckButton:
-    CheckButton:
-    CheckButton:
-    ScoreButton:
 
 <CheckButton@Button>
     text: ''
@@ -85,11 +82,11 @@
     BoxLayout:
         orientation: 'vertical'
 
+        # Top Bar #
         GridLayout:
             cols: 3
-            rows: 1
+            rows: 2
             size_hint: 1, .2
-
             Button:
                 text: '<--'
                 size_hint: .2, 1
@@ -99,24 +96,31 @@
             Label:
                 size_hint: .2, 1
 
+            Label:
+            Label:
+                text: 'Players'
+            Label:
+
+        LabelRow:
+
+
+        # Players area #
         BoxLayout:
             id: players
             orientation: 'vertical'
-            #size_hint: .8, 1
-
-            Label:
-                text: 'Players'
-            LabelRow:
-            CustomRow:
-            CustomRow:
-            CustomRow:
-            CustomRow:
-            CustomRow:
+            #size_hint: 1, .8
 
         GridLayout:
-            cols: 4
+            cols: 5
             rows: 1
             size_hint: 1, .1
+
+            Button:
+                text: 'Add Player'
+                on_release: root.add_player()
+            Button:
+                text: 'Remove Player'
+                on_release: root.remove_player()
             Button:
                 text: 'Ruels'
                 on_release: Factory.RulesPopup().open()
@@ -125,3 +129,4 @@
                 on_release: Factory.PhasesPopup().open()
             Button:
                 text: 'Reset'
+                on_release: root.reset_game()
