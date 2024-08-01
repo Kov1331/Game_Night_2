@@ -4,7 +4,6 @@ from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 from kivy.uix.screenmanager import Screen
 from kivy.lang.builder import Builder
-from kivymd.uix.label import MDLabel
 
 Builder.load_file("game_phase10.kv")
 
