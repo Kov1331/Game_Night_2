@@ -5,7 +5,7 @@
 
     GridLayout:
         cols: 3
-        rows: 1
+        #rows: 1
         size_hint: 1, .1
         pos_hint: {'top': 1}
         Button:
@@ -17,20 +17,30 @@
             Button:
                 id: add_player
                 text: 'Add Player'
-                #on_press: root.add_player()
+                on_press: root.add_player()
             Button:
                 id: remove_player
                 text: 'Remove Player'
                 on_press: root.remove_player()
 
+    # Scoreboard Secion (Dynamically Filled)
+    ScrollView:
+        size_hint: 1, .7
+        GridLayout:
+            id: players_grid
+            cols: 15  #  This ensures even spacing
+            spacing: dp(5)
+            size_hint_y: None
+            height: self.minimum_height
 
-    BoxLayout:
-        size_hint: 1, .6
+    #BoxLayout:
+     #   size_hint: 1, .6
         #root.scoreboard() or make another screen Scoreboard()
 
+    # Bottom Bar (Game Controls)
     GridLayout:
         cols: 3
-        rows: 1
+        #rows: 1
         size_hint: 1, .1
         pos_hint: {'bottom': 1}
 
@@ -42,11 +52,12 @@
             id: score_round
             text: 'Score Round'
             disabled: True
+            on_press: root.score_round()
         Button:
             id: end_game
             text: 'End Game'
             disabled: True
-            on_release: root.end_game()
+            on_release: root.confirm_end_game()
 
 
 
