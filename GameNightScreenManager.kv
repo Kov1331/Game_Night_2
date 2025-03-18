@@ -1,9 +1,14 @@
-# #: import GameNightScreenManager GameNightScreenManager
 #: import screen_welcome screen_welcome
 #: import game_phase10 game_phase10
+#: import mexican_train_dominos mexican_train_dominos
+
 
 <GameNightScreenManager@ScreenManager>
+    name: 'screen_manager'
 
 GameNightScreenManager:
-    Welcome_Screen:
+    id: screen_manager
+
+    WelcomeScreen:  # First screen to be shown
     Phase10:
+    MexicanTrainDominos:

@@ -1,0 +1,52 @@
+#: import mexican_train_dominos mexican_train_dominos
+
+<MexicanTrainDominos>
+    name: 'mexican_train_dominos'
+
+    GridLayout:
+        cols: 3
+        rows: 1
+        size_hint: 1, .1
+        pos_hint: {'top': 1}
+        Button:
+            text: '<--'
+            on_release: app.root.current = 'welcome_screen'
+        Label:
+            text: 'Mexican Train Dominos'
+        BoxLayout:
+            Button:
+                id: add_player
+                text: 'Add Player'
+                #on_press: root.add_player()
+            Button:
+                id: remove_player
+                text: 'Remove Player'
+                on_press: root.remove_player()
+
+
+    BoxLayout:
+        size_hint: 1, .6
+        #root.scoreboard() or make another screen Scoreboard()
+
+    GridLayout:
+        cols: 3
+        rows: 1
+        size_hint: 1, .1
+        pos_hint: {'bottom': 1}
+
+        Button:
+            id: start_game
+            text: 'Start Game'
+            on_press: root.start_game()
+        Button:
+            id: score_round
+            text: 'Score Round'
+            disabled: True
+        Button:
+            id: end_game
+            text: 'End Game'
+            disabled: True
+            on_release: root.end_game()
+
+
+

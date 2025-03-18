@@ -60,7 +60,8 @@ class Phase10(Screen):
 
         return player_layout
 
-    def rules(self):  # todo reformat to make look better
+    @staticmethod
+    def rules():  # todo reformat to make look better
         return """
         DESCRIPTION:
         Phase 10 is played in a series of rounds in which players attempt to build combinations 
@@ -198,7 +199,8 @@ class Phase10(Screen):
         the players that tied replay the 10th Phase. The forst one to go out is the winner.
         """
 
-    def phases(self):  # todo align phases to the left, ??add extra phases??
+    @staticmethod
+    def phases():  # todo align phases to the left, ??add extra phases??
         return """
         Phases:
         1. 2 sets of 3

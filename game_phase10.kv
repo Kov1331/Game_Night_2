@@ -52,7 +52,7 @@
                 id: rules_label
                 size_hint: 1, None
                 height: 4900
-                text: game_phase10.Phase10.rules(self) #'This is where the rules go'
+                text: game_phase10.Phase10.rules() #'This is where the rules go'
         Button:
             text: 'Close'
             size_hint: 1, .1
@@ -65,7 +65,7 @@
         orientation: 'vertical'
         Label:
             # pos_hint: left
-            text: game_phase10.Phase10.phases(self)  #'This is where the Phases go'
+            text: game_phase10.Phase10.phases()  #'This is where the Phases go'
 
         Button:
             text: 'Close'

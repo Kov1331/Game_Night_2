@@ -4,8 +4,8 @@ from kivy.lang.builder import Builder
 
 class GameNightApp(MDApp):
     def build(self):
-        screen_manager = Builder.load_file("GameNightScreenManager.kv")
         self.theme_cls.theme_style = "Dark"
+        screen_manager = Builder.load_file("GameNightScreenManager.kv")
         return screen_manager
 
 
